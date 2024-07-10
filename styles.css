@@ -1,0 +1,113 @@
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a, img, strong, ol, ul, li,
+fieldset, form, label, legend,
+caption, footer, header, nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.home-wrapper {
+    margin: 0 5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+}
+
+.header .logo {
+    display: flex;
+}
+
+.header .logo, a, img {
+    width: auto;
+    max-height: 50px;
+}
+
+.nav-wrapper {
+    height: 100%;
+}
+
+.nav-wrapper .burger-menu {
+    display: none;
+}
+
+.nav-wrapper .burger-menu img {
+    max-height: 30px;
+}
+
+.nav-wrapper nav {
+    display: flex;
+    column-gap: 1rem;
+}
+
+/* media queries */
+
+/* mobile */
+@media screen and (max-width: 768px) {
+
+    .home-wrapper {
+        margin: 0 1rem;
+    }
+
+    .header {
+        padding: 1rem 1rem;
+    }
+
+    .header .logo, a, img {
+        width: auto;
+        max-height: 30px;
+    }
+
+    .nav-wrapper nav {
+        display: none;
+    }
+
+    .nav-wrapper .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 30px;
+        height: 30px;
+    }
+
+    /* .burger-menu .burger-inner {
+        width: 100%;
+        height: 100%;
+    } */
+
+    .burger-menu .line {
+        background-color: #000;
+        height: 1px;
+        width: 100%;
+    }
+
+
+
+}
