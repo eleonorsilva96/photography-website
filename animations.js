@@ -1,22 +1,17 @@
-// let tl = gsap.timeline(); //create the timeline
-// tl.to(".top", {rotation: 180}) //start sequencing
-// .to(".bottom", {rotation: 180});
+const burgerMenu = document.getElementById("burger-menu");
 
-gsap.to(".top", {rotation: 45 });
-gsap.to(".bottom", { y: -10.5, rotation: -45 });
+const openMenu = burgerMenu.classList;
 
-// TweenMax.set(".top", {
-//     scale:0,
-//     rotation: 0,
-//     transformOrigin:"50% 50%"         // make transform origin be center for x and y axis
-//   });
+burgerMenu.addEventListener("click", () => {
+  const result = openMenu.toggle("active");
 
-// TweenMax.set(".bottom", {
-//     scale:0,
-//     rotation: 0,
-//     transformOrigin:"50% 50%"         // make transform origin be center for x and y axis
-//   });
-  
-//   gsap.to(".top", 1, { scale: 1, rotation:"+=30"})           // scale element to 100%
-//   gsap.to(".bottom", 1, { scale:1, y: -10, rotation:"+=150"})  // rotate element by a relative value of 360deg
-
+  //in the toggle, if the matching value doesn't exist, add it and return true
+  if (result === true) {
+    gsap.to(".top", { rotation: 45 });
+    gsap.to(".bottom", { y: -10.5, rotation: -45 });
+    console.log("works!");
+  } else {
+    gsap.to(".top", { rotation: 0 });
+    gsap.to(".bottom", { y: 0, rotation: 0 });
+  }
+});
