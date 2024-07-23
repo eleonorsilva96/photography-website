@@ -58,14 +58,54 @@ body {
     display: none;
 }
 
-.nav-wrapper .burger-menu img {
-    max-height: 30px;
-}
-
 .nav-wrapper nav {
     display: flex;
     column-gap: 1rem;
 }
+
+/* photos gallery */
+
+.cards-wrapper {
+    max-width: 100%;
+}
+
+.cards-inner {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(219px, 550px));
+    grid-auto-flow: dense;
+    gap: 24px;
+}
+
+.cards-inner .card {
+    width: 100%;
+    height: 100%;
+}
+
+.card-vertical {
+    grid-row: span 2;
+}
+
+.cards-inner .card img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+}
+
+/* .cards-row .card {
+    width: 295px;
+    height: 197px;
+    background: red;
+}
+
+.cards-row .card.vertical {
+    height: 393px;
+} */
+
+/* .cards-row {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
 
 /* media queries */
 
