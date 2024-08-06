@@ -30,7 +30,7 @@ getData()
       
       if (imgs.url) {
 
-        console.log(delayCounter);
+        // console.log(delayCounter);
       
           // delayCounter+=0.2;
     
@@ -46,16 +46,20 @@ getData()
         divImg.appendChild(img);
         
         if (imgs.height) {
-          console.log("vertical image!");
+          // console.log("vertical image!");
           divImg.setAttribute("class", "card card-vertical");
         }
         
         const cardsInner = document.getElementById("cards-inner");
         cardsInner.appendChild(divImg);
+
+        if (index <= 15) {
+          gsap.fromTo(`#card-${index}`, { opacity: 0, y: 70 }, { opacity: 1, y: 0, ease: "power1.out", duration: 0.5, delay: delayCounter});
+          delayCounter+=0.1;
+        }
         
-        gsap.fromTo(`#card-${index}`, { opacity: 0, y: 70 }, { opacity: 1, y: 0, ease: "power1.out", duration: 0.5, delay: delayCounter});
-            delayCounter+=0.1;
-         
+
+
         // gsap.fromTo(`#card-0`, { opacity: 0, y: 50, duration: 0.5 }, { opacity: 1, y: -5, duration: 1, delay: 0.2});
         // gsap.fromTo(`#card-1`, { opacity: 0, y: 50, duration: 0.5 }, { opacity: 1, y: -5, duration: 1, delay: 0.3});
         // gsap.fromTo(`#card-2`, { opacity: 0, y: 50, duration: 0.5 }, { opacity: 1, y: -5, duration: 1, delay: 0.4});
@@ -89,10 +93,35 @@ getData()
     console.error(err);
   });
 
-// window.addEventListener("load", (event) => {
-//   console.log("loaded!");
-// const cardsNumber = document.getElementsByClassName("card").length;
+  
+  let heightReached = 250;
+  let cardsNumberMin = 15;
+  let cardsNumberMax = 20;
+  
+  addEventListener("scroll", () => {
+    let scrollTopPage = document.documentElement.scrollTop;
+    let totalCards = document.querySelectorAll('.card').length;
 
-// const tl = gsap.timeline();
-// tl.to(".card", {x: 100, ease: "power2.out"});
-// });
+    console.log(scrollTopPage);
+
+    if (scrollTopPage > heightReached) {
+
+      console.log(`more than ${heightReached}`);
+    
+      for (a = 15; a <= totalCards; a++) {
+        
+        if(a > cardsNumberMin && a <= cardsNumberMax) {
+          console.log(a);
+          gsap.fromTo(`#card-${a}`, { opacity: 0, y: 70 }, { opacity: 1, y: 0, ease: "power1.out", duration: 0.5});
+        }
+        
+      }
+      heightReached+=500; 
+      cardsNumberMin+=5;
+      cardsNumberMax+=5;
+    }
+    
+  });
+
+
+
